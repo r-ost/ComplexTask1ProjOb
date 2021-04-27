@@ -1,0 +1,191 @@
+Output z 1:
+
+simple database:
+
+ 
+
+flu, death rate: 0.01, infection rate: 90.01
+        Genome: 51a0e92b-1e84-4976-b56e-7fd0df549e60 GACCA, 4.831501657530433
+bird-flu, death rate: 0.1, infection rate: 80
+        Genome: cb32f393-1317-40c0-a5b1-7513401f1c5e ACTAGA, 63.008946768478005
+
+ 
+
+excell database:
+
+ 
+
+measles, death rate: 20, infection rate: 90
+        Genome: 1419d65a-d2a5-4fb4-94a8-ee6676c07610 ACAC, 16.31512763738405
+sars, death rate: 12.321, infection rate: 72.321
+        Genome: 5e02d116-c0c2-402c-9cd4-cc242e33ed2e ACTAG, 54.637822999915954
+rubella, death rate: 33.33, infection rate: 1.33
+        Genome: aca3edfe-3a77-42cb-8a04-f44d163e5035 ACTAG, 10.098471543797512
+chickenpox, death rate: 0, infection rate: 100
+        Genome: 323edce7-db50-4d21-bc41-38ea09f68439 ACTAG, 3.4102672261233757
+smallpox, death rate: 5, infection rate: 10
+        Genome: a20b2cf0-5798-4971-98a5-b53ea896a554 GACAT, 86.92418252440363
+chikungunya, death rate: 1, infection rate: 0
+        Genome: a6fc7fc1-4cca-46de-ae10-346e0a8e47f3 ACTAGA, 0.9061809633421622
+
+ 
+
+overcomplicated database:
+
+ 
+
+Influenza, death rate: 1, infection rate: 20
+        Genome: f23a9524-05c3-4fc0-8850-2495962eacbd GAGATA, 15.998410999774194
+        Genome: 323edce7-db50-4d21-bc41-38ea09f68439 ACTAG, 3.4102672261233757
+Ebola, death rate: 6, infection rate: 20
+        Genome: f23a9524-05c3-4fc0-8850-2495962eacbd GAGATA, 15.998410999774194
+        Genome: a6fc7fc1-4cca-46de-ae10-346e0a8e47f3 ACTAGA, 0.9061809633421622
+Herpes, death rate: 7.7, infection rate: 12
+        Genome: c0d3ff8b-0acb-4333-bcad-d2ba1d3cce0e ACTAG, 84.64372348256582
+        Genome: b7d6ef38-aeea-4c05-9630-bb140d44f15d ACTAGA, 75.7123194521816
+Rabies, death rate: 33.3, infection rate: 70
+        Genome: f23a9524-05c3-4fc0-8850-2495962eacbd GAGATA, 15.998410999774194
+        Genome: 323edce7-db50-4d21-bc41-38ea09f68439 ACTAG, 3.4102672261233757
+Rubella, death rate: 13, infection rate: 90
+        Genome: 51a0e92b-1e84-4976-b56e-7fd0df549e60 GACCA, 4.831501657530433
+        Genome: a94538cc-a165-4a41-8649-f31437a80ccf AGGAC, 14.033960697256942
+        Genome: ae60c2d5-38c7-45ae-a963-7b2bdc4df3ec ACTAGA, 40.71266462128268
+        Genome: b7d6ef38-aeea-4c05-9630-bb140d44f15d ACTAGA, 75.7123194521816
+        Genome: aca3edfe-3a77-42cb-8a04-f44d163e5035 ACTAG, 10.098471543797512
+        Genome: a6fc7fc1-4cca-46de-ae10-346e0a8e47f3 ACTAGA, 0.9061809633421622
+Mumps, death rate: 1, infection rate: 23
+Covid, death rate: 12.2, infection rate: 3
+        Genome: 51a0e92b-1e84-4976-b56e-7fd0df549e60 GACCA, 4.831501657530433
+        Genome: 95284d69-1275-4f28-a1a3-03c4d7f19dce ACTAG, 75.46447411899663
+        Genome: 2ffc944d-0f59-4e0d-aac4-371064b757a8 ACTAG, 59.16681720836405
+        Genome: a6fc7fc1-4cca-46de-ae10-346e0a8e47f3 ACTAGA, 0.9061809633421622
+ 
+
+
+
+
+
+
+ 
+Output z 2:
+ 
+pierwszy podpunkt:
+
+ 
+
+measles, death rate: 20, infection rate: 90
+        Genome: c40df954-0c63-447b-b104-c51e3f467e45 ACAC, 16.31512763738405
+rubella, death rate: 33.33, infection rate: 1.33
+        Genome: f52289dc-a83b-4e2b-b3dc-08173f18893c ACTAG, 10.098471543797512
+
+ 
+
+
+drugi podpunkt:
+
+ 
+
+measles, death rate: 30, infection rate: 90
+        Genome: c40df954-0c63-447b-b104-c51e3f467e45 ACAC, 16.31512763738405
+sars, death rate: 22.320999999999998, infection rate: 72.321
+        Genome: 0d5437d8-6fc6-4752-bf2a-bc01be31d712 ACTAG, 54.637822999915954
+rubella, death rate: 43.33, infection rate: 1.33
+        Genome: f52289dc-a83b-4e2b-b3dc-08173f18893c ACTAG, 10.098471543797512
+
+ 
+
+
+trzeci podpunkt:
+
+ 
+
+measles, death rate: 20, infection rate: 90
+        Genome: c40df954-0c63-447b-b104-c51e3f467e45 ACAC, 16.31512763738405
+sars, death rate: 12.321, infection rate: 72.321
+        Genome: 0d5437d8-6fc6-4752-bf2a-bc01be31d712 ACTAG, 54.637822999915954
+rubella, death rate: 33.33, infection rate: 1.33
+        Genome: f52289dc-a83b-4e2b-b3dc-08173f18893c ACTAG, 10.098471543797512
+chickenpox, death rate: 0, infection rate: 100
+        Genome: 0b955a45-651e-442c-a5b5-07a0a5adbdbe ACTAG, 3.4102672261233757
+smallpox, death rate: 5, infection rate: 10
+        Genome: 83965f55-365f-466a-a949-98c8f3d981bf GACAT, 86.92418252440363
+chikungunya, death rate: 1, infection rate: 0
+        Genome: 9d7b0326-8abb-4dfc-9601-933c592f865e ACTAGA, 0.9061809633421622
+Influenza, death rate: 1, infection rate: 20
+        Genome: 427c9fb4-d296-442a-8f5a-75ea758e45da GAGATA, 15.998410999774194
+        Genome: 0b955a45-651e-442c-a5b5-07a0a5adbdbe ACTAG, 3.4102672261233757
+Ebola, death rate: 6, infection rate: 20
+        Genome: 427c9fb4-d296-442a-8f5a-75ea758e45da GAGATA, 15.998410999774194
+        Genome: 9d7b0326-8abb-4dfc-9601-933c592f865e ACTAGA, 0.9061809633421622
+Herpes, death rate: 7.7, infection rate: 12
+        Genome: a498a48b-e018-44c9-85db-5efa6653deea ACTAG, 84.64372348256582
+        Genome: 3d2bc81a-8870-4d4f-8883-85f4d8c93b81 ACTAGA, 75.7123194521816
+Rabies, death rate: 33.3, infection rate: 70
+        Genome: 427c9fb4-d296-442a-8f5a-75ea758e45da GAGATA, 15.998410999774194
+        Genome: 0b955a45-651e-442c-a5b5-07a0a5adbdbe ACTAG, 3.4102672261233757
+Rubella, death rate: 13, infection rate: 90
+        Genome: fca0a1ae-64f0-4c08-be75-11aea6c886b7 GACCA, 4.831501657530433
+        Genome: 72f045ab-f292-4b6a-990d-d2a8bbc8008d AGGAC, 14.033960697256942
+        Genome: 18c19a82-9c55-4d2f-9ed3-4a3a41c4edcb ACTAGA, 40.71266462128268
+        Genome: 3d2bc81a-8870-4d4f-8883-85f4d8c93b81 ACTAGA, 75.7123194521816
+        Genome: f52289dc-a83b-4e2b-b3dc-08173f18893c ACTAG, 10.098471543797512
+        Genome: 9d7b0326-8abb-4dfc-9601-933c592f865e ACTAGA, 0.9061809633421622
+Mumps, death rate: 1, infection rate: 23
+Covid, death rate: 12.2, infection rate: 3
+        Genome: fca0a1ae-64f0-4c08-be75-11aea6c886b7 GACCA, 4.831501657530433
+        Genome: 130982de-23e7-4c34-828f-3bbf76fc4e02 ACTAG, 75.46447411899663
+        Genome: 8f728f4c-4a23-4318-bb6b-a212e180d844 ACTAG, 59.16681720836405
+        Genome: 9d7b0326-8abb-4dfc-9601-933c592f865e ACTAGA, 0.9061809633421622
+ 
+
+
+
+
+
+
+ 
+Output z testowania:
+ 
+Testing AvadaVaccine
+Pig 0 is dead by vaccination
+Pig 1 is dead by vaccination
+Pig 2 is dead by vaccination
+Pig 3 is dead by vaccination
+Pig 4 is dead by vaccination
+Cat 0 is dead
+Cat 1 is dead
+Cat 2 is dead
+Cat 3 is dead
+Cat 4 is dead
+5 alive!
+Testing Vaccinator3000
+Pig 2 is dead by vaccination
+Pig 3 is dead by vaccination
+Cat 0 is dead
+Pig 0 is dead
+Cat 1 is dead
+Pig 1 is dead
+Cat 2 is dead
+Cat 3 is dead
+Cat 4 is dead
+Pig 4 is dead
+Dog 0 is dead
+Dog 1 is dead
+3 alive!
+Testing ReverseVaccine
+Cat 0 is dead by vaccination
+Cat 1 is dead by vaccination
+Cat 2 is dead by vaccination
+Cat 3 is dead by vaccination
+Cat 4 is dead by vaccination
+Pig 4 is dead by vaccination
+Dog 0 is dead
+Pig 0 is dead
+Dog 1 is dead
+Pig 1 is dead
+Dog 2 is dead
+Pig 2 is dead
+Dog 3 is dead
+Pig 3 is dead
+Dog 4 is dead
+0 alive!

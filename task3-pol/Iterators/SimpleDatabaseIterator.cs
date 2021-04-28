@@ -11,7 +11,15 @@ namespace Task3.Iterators
         private SimpleGenomeDatabase _genomeDatabase;
         private VirusData _current;
 
-        public VirusData Current { get => _current; }
+        public VirusData Current
+        {
+            get
+            {
+                if (_current == null)
+                    throw new InvalidOperationException();
+                return _current;
+            } 
+        }
 
         public SimpleDatabaseIterator(SimpleDatabase simpleDatabase, SimpleGenomeDatabase genomeDatabase)
         {
@@ -29,8 +37,8 @@ namespace Task3.Iterators
             SimpleDatabaseRow currentRow = _enumerator.Current;
             
             var genomes = _genomeDatabase.genomeDatas
-                      .Where(g => g.Genome == currentRow.GenomeId.ToString())
-                      .ToList();
+                          .Where(g => g.Genome == currentRow.GenomeId.ToString())
+                          .ToList();
 
             VirusData currentRowVirusData = new VirusData
             (

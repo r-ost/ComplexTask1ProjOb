@@ -25,6 +25,7 @@ namespace Task3.Iterators
         {
             _enumerator = simpleDatabase.Rows.GetEnumerator();
             _genomeDatabase = genomeDatabase;
+
             _current = null;
         }
 

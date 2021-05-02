@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Task3.Data;
 
 namespace Task3.Iterators
 {

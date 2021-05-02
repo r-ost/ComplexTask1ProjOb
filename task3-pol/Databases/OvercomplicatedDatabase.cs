@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Task3
+namespace Task3.Databases
 {
     public interface INode
     {

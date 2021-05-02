@@ -1,4 +1,4 @@
-﻿using Task3.Comparison;
+﻿using Task3.IteratorDecorators.Comparison;
 using Task3.Iterators;
 
 namespace Task3.IteratorDecorators

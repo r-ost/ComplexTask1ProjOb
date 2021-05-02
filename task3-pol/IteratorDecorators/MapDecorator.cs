@@ -1,5 +1,6 @@
-﻿using Task3.Iterators;
-using Task3.Mapping;
+﻿using Task3.Data;
+using Task3.IteratorDecorators.Mapping;
+using Task3.Iterators;
 
 namespace Task3.IteratorDecorators
 {

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using Task3.Data;
 
-namespace Task3
+namespace Task3.Databases
 {
     public class SimpleGenomeDatabase
     {

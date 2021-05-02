@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Task3.Data;
 using Task3.Vaccines;
 
 namespace Task3.Subjects
@@ -27,6 +28,11 @@ namespace Task3.Subjects
                     return;
                 }
             }
+        }
+
+        public void GetVaccinated(IVaccine vaccine)
+        {
+            vaccine.VaccinateSubject(this);
         }
     }
 }

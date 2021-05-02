@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Transactions;
-using Task3.Comparison;
 using Task3.IteratorDecorators;
+using Task3.IteratorDecorators.Comparison;
+using Task3.IteratorDecorators.Mapping;
 using Task3.Iterators;
-using Task3.Mapping;
 using Task3.Subjects;
 using Task3.Vaccines;
 
@@ -20,7 +19,6 @@ namespace Task3
                 {
                     Console.WriteLine(it.Current);
                 }
-                // Console.WriteLine(...)
             }
         }
 
@@ -45,6 +43,7 @@ namespace Task3
                     foreach (var subject in subjects)
                     {
                         // process of vaccination
+                        subject.GetVaccinated(vaccine);
                     }
 
                     var genomeDatabase = Generators.PrepareGenomes();
@@ -52,14 +51,17 @@ namespace Task3
                     // iteration over SimpleGenomeDatabase using solution from 1)
                     // subjects should be tested here using GetTested function
 
+                    var iteratorFactory = new IteratorFactory(genomeDatabase);
+                    var it = iteratorFactory.GetIterator(simpleDatabase);
 
                     // iterating over simpleDatabase
-                    //{
-                        //foreach (var subject in subjects)
-                        //{
-                        //    subject.GetTested();
-                        //}
-                    //}
+                    while (it.Next())
+                    {
+                        foreach (var subject in subjects)
+                        {
+                            subject.GetTested(it.Current);
+                        }
+                    }
 
                     int aliveCount = 0;
                     foreach (var subject in subjects)
@@ -79,22 +81,36 @@ namespace Task3
             var mediaOutlet = new MediaOutlet();
 
             var iteratorFactory = new IteratorFactory(genomeDatabase);
-            
 
-            // bez filtrow
+            // -----------------------------------------------------------------------------
+            Console.WriteLine("simple database:\n\n\n");
+            mediaOutlet.Publish(iteratorFactory.GetIterator(simpleDatabase));
+
+            Console.WriteLine("\n\n\nexcel database:\n\n\n");
+            mediaOutlet.Publish(iteratorFactory.GetIterator(excellDatabase));
+
+            Console.WriteLine("\n\n\novercomplicated database:\n\n\n");
+            mediaOutlet.Publish(iteratorFactory.GetIterator(overcomplicatedDatabase));
+            // -----------------------------------------------------------------------------
+
+
+
+            // -----------------------------------------------------------------------------
+            Console.WriteLine("\n\n\npierwszy podpunkt (bez filtrow i mapowan):\n");
             var it = iteratorFactory.GetIterator(excellDatabase);
             mediaOutlet.Publish(it);
             Console.WriteLine("\n\n\n");
 
 
-            // filtr f => f.DeathRate > 15
+            Console.WriteLine("drugi podpunkt (f => f.DeathRate > 15):\n");
             it = new FilterDecorator(iteratorFactory.GetIterator(excellDatabase),
                                      new DeathRateBiggerThan(15));
             mediaOutlet.Publish(it);
             Console.WriteLine("\n\n\n");
 
-            //mapowanie f => new VirusData(f.VirusName, f.DeathRate+10, f.InfectionRate, f.Genomes)
-            //i filtr f => f.DeathRate > 15 jednoczesnie
+
+
+            Console.WriteLine("trzeci podpunkt (mapowanie: f => f.DeathRate += 10, filtrowanie: f => f.DeathRate > 15):\n");
             it = new FilterDecorator
                 (
                 new MapDecorator(iteratorFactory.GetIterator(excellDatabase), new AddToDeathRate(10)),
@@ -104,25 +120,18 @@ namespace Task3
             Console.WriteLine("\n\n\n");
 
 
-            // konkatenacja danych z bazy ExcellDatabase i OvercomplicatedDatabase
+            Console.WriteLine("czwarty podpunkt (konkatenacja ExcellDatabase i OvercomplicatedDatabase):\n");
             it = new ConcatenateDecorator(iteratorFactory.GetIterator(excellDatabase),
                 iteratorFactory.GetIterator(overcomplicatedDatabase));
             mediaOutlet.Publish(it);
             Console.WriteLine("\n\n\n");
+            // -----------------------------------------------------------------------------
 
-            //Console.WriteLine("simple database:\n\n\n");
-            //mediaOutlet.Publish(iteratorFactory.GetIterator(simpleDatabase));
-
-            //Console.WriteLine("\n\n\nexcel database:\n\n\n");
-            //mediaOutlet.Publish(iteratorFactory.GetIterator(excellDatabase));
-
-            //Console.WriteLine("\n\n\novercomplicated database:\n\n\n");
-            //mediaOutlet.Publish(iteratorFactory.GetIterator(overcomplicatedDatabase));
 
 
             // testing animals
-            //var tester = new Tester();
-            //tester.Test();
+            var tester = new Tester();
+            tester.Test();
         }
     }
 }

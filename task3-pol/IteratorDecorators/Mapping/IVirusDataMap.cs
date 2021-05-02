@@ -1,4 +1,6 @@
-﻿namespace Task3.Mapping
+﻿using Task3.Data;
+
+namespace Task3.IteratorDecorators.Mapping
 {
     public interface IVirusDataMap
     {

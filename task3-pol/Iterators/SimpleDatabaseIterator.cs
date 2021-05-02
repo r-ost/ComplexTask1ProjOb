@@ -38,7 +38,7 @@ namespace Task3.Iterators
             SimpleDatabaseRow currentRow = _enumerator.Current;
             
             var genomes = _genomeDatabase.genomeDatas
-                          .Where(g => g.Genome == currentRow.GenomeId.ToString())
+                          .Where(g => g.Id == currentRow.GenomeId)
                           .ToList();
 
             VirusData currentRowVirusData = new VirusData

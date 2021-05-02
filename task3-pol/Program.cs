@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Task3.Comparison;
+using Task3.IteratorDecorators;
+using Task3.Iterators;
+using Task3.Mapping;
 using Task3.Subjects;
 using Task3.Vaccines;
 
@@ -9,8 +13,12 @@ namespace Task3
     {
         public class MediaOutlet
         {
-            public void Publish()
+            public void Publish(IDatabaseIterator it)
             {
+                while (it.Next())
+                {
+                    Console.WriteLine(it.Current);
+                }
                 // Console.WriteLine(...)
             }
         }
@@ -69,12 +77,44 @@ namespace Task3
             var overcomplicatedDatabase = Generators.PrepareOvercomplicatedDatabase(genomeDatabase);
             var mediaOutlet = new MediaOutlet();
 
+            var iteratorFactory = new IteratorFactory(genomeDatabase);
+            
 
+            // bez filtrow
+            var it = iteratorFactory.GetIterator(excellDatabase);
+            mediaOutlet.Publish(it);
+            Console.WriteLine("\n\n\n");
+
+
+            // filtr f => f.DeathRate > 15
+            it = new FilterDecorator(iteratorFactory.GetIterator(excellDatabase),
+                                     new DeathRateBiggerThan(15));
+            mediaOutlet.Publish(it);
+            Console.WriteLine("\n\n\n");
+
+            //mapowanie f => new VirusData(f.VirusName, f.DeathRate+10, f.InfectionRate, f.Genomes)
+            //i filtr f => f.DeathRate > 15 jednoczesnie
+            it = new FilterDecorator
+                (
+                new MapDecorator(iteratorFactory.GetIterator(excellDatabase), new AddToDeathRate(10)),
+                new DeathRateBiggerThan(15)
+                );
+            mediaOutlet.Publish(it);
+            Console.WriteLine("\n\n\n");
+
+            //Console.WriteLine("simple database:\n\n\n");
+            //mediaOutlet.Publish(iteratorFactory.GetIterator(simpleDatabase));
+
+            //Console.WriteLine("\n\n\nexcel database:\n\n\n");
+            //mediaOutlet.Publish(iteratorFactory.GetIterator(excellDatabase));
+
+            //Console.WriteLine("\n\n\novercomplicated database:\n\n\n");
+            //mediaOutlet.Publish(iteratorFactory.GetIterator(overcomplicatedDatabase));
 
 
             // testing animals
-            var tester = new Tester();
-            tester.Test();
+            //var tester = new Tester();
+            //tester.Test();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -32,6 +33,8 @@ namespace Task3.Iterators
         public ExcellDatabaseIterator(ExcellDatabase excellDatabase, SimpleGenomeDatabase simpleGenomeDatabase)
         {
             _index = -1;
+            _excellDatabase = excellDatabase;
+            _genomeDatabase = simpleGenomeDatabase;
 
             InitializeRows();
         }
@@ -62,11 +65,14 @@ namespace Task3.Iterators
                                        .Where(g => g.Id.ToString() == _genomeIDs[_index])
                                        .ToList();
 
+            double.TryParse(_deathRates[_index].Replace('.', ','), out var deathRate);
+            double.TryParse(_infectionRates[_index].Replace('.', ','), out var infectionRate);
+
             VirusData virusData = new VirusData
             (
                 _names[_index],
-                double.Parse(_deathRates[_index]),
-                double.Parse(_infectionRates[_index]),
+                deathRate,
+                infectionRate,
                 genomes
             );
 

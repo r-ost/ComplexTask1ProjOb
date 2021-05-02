@@ -45,7 +45,7 @@ Zadanie
   Powinno być łatwe wymienianie funkcji w mapowaniu i filtrowaniu.
   Powinno być możliwe operacji kolejno po sobie na przykład złożenie kolejno po sobie:
     - odfiltrowanie wirusów o DeathRate > 3.0,
-    - zmapowanie wirusów inkrementujące DeathRate o 1, 
+    - zmapowanie wirusów inkrementujące DeathRate o 1,
     - odfiltrowanie wirusów o DeathRate < 1.0
   Należy wykorzystać klasy i metody z 1. podpunktu.
 

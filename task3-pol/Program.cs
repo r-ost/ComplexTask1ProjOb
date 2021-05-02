@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Transactions;
 using Task3.Comparison;
 using Task3.IteratorDecorators;
 using Task3.Iterators;
@@ -99,6 +100,13 @@ namespace Task3
                 new MapDecorator(iteratorFactory.GetIterator(excellDatabase), new AddToDeathRate(10)),
                 new DeathRateBiggerThan(15)
                 );
+            mediaOutlet.Publish(it);
+            Console.WriteLine("\n\n\n");
+
+
+            // konkatenacja danych z bazy ExcellDatabase i OvercomplicatedDatabase
+            it = new ConcatenateDecorator(iteratorFactory.GetIterator(excellDatabase),
+                iteratorFactory.GetIterator(overcomplicatedDatabase));
             mediaOutlet.Publish(it);
             Console.WriteLine("\n\n\n");
 

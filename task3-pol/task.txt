@@ -102,10 +102,12 @@ Zaproponowano 3 rodzaje obiektów testowych: psy, koty, świnie.
 Chcemy sprawdzić ile obiektów testowych przeżyje atak wirusów z bazy SimpleDatabase po zaszczepieniu odpowiednią szczepionką.
 
 
-Każda ze szczepionek oferuje pewną bazową odporność na pewne łańcuchy nukleotydów (Immunity), jednak na każdy z obiektów testowych działa trochę inaczej.
+Każda ze szczepionek oferuje pewną bazową odporność na pewne łańcuchy nukleotydów (Immunity),
+jednak na każdy z obiektów testowych działa trochę inaczej.
 
-Jeśli łańcuch odporności zawiera w sobie łańcuch wirusa, wówczas obiekt jest odporny na działanie wirusa i przeżywa jego atak. W przeciwnym przypadku umiera.
-Przykładowo jeśli obiekt ma odporność na "ACTAG", to wówczas przeżyje atak wirusa "CTAG", ale nie przeżyje ataku wirusa "ACTG".
+Jeśli łańcuch odporności zawiera w sobie łańcuch wirusa, wówczas obiekt jest odporny na działanie wirusa i przeżywa jego atak.
+W przeciwnym przypadku umiera. Przykładowo jeśli obiekt ma odporność na "ACTAG",
+to wówczas przeżyje atak wirusa "CTAG", ale nie przeżyje ataku wirusa "ACTG".
 
 Niestety, szczepienie wiąże się również z możliwością śmierci obiektu testowego - każda ze szczepionek ma współczynnik DeathRate.
 
@@ -126,7 +128,8 @@ Poniżej opisany jest sposób działania szczepionek:
 		Świnia umiera zgodnie z aktualną szansą na śmierć.
 
 - Vaccinator3000:
-	Działanie tej szczepionki polega na wielokrotnym losowaniu pojedynczych elementów odporności bazowej oraz konkatenowaniu wylosowanych elementów.
+	Działanie tej szczepionki polega na wielokrotnym losowaniu pojedynczych elementów odporności 
+    bazowej oraz konkatenowaniu wylosowanych elementów.
 	- pies: proces losowania przebiega 3000 razy, pies umiera z szansą DeathRate
 	- kot: proces losowania przebiega 300 razy, kot umiera z szansą DeathRate
 	- świnia: proces losowania przebiega 15 razy, świnia umiera z szansą 3*DeathRate

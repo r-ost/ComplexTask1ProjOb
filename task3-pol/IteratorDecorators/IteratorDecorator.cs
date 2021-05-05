@@ -4,11 +4,11 @@ using Task3.Iterators;
 
 namespace Task3.IteratorDecorators
 {
-    public class IteratorDecorator : IDatabaseIterator
+    public class IteratorDecorator : IVirusDatabaseIterator
     {
-        private readonly IDatabaseIterator _inner;
+        private readonly IVirusDatabaseIterator _inner;
 
-        public IteratorDecorator(IDatabaseIterator inner)
+        public IteratorDecorator(IVirusDatabaseIterator inner)
         {
             _inner = inner;
         }

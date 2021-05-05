@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
 using Task3.Data;
 using Task3.Databases;
 
 namespace Task3.Iterators
 {
-    public class ExcellDatabaseIterator : IDatabaseIterator
+    public class ExcellDatabaseIterator : IVirusDatabaseIterator
     {
-        private ExcellDatabase _excellDatabase;
-        private SimpleGenomeDatabase _genomeDatabase;
+        private readonly ExcellDatabase _excellDatabase;
+        private readonly IGenomeDatabaseWrapper _genomeDatabase;
+
         private string[] _names;
         private string[] _deathRates;
         private string[] _infectionRates;
@@ -32,11 +30,11 @@ namespace Task3.Iterators
             }
         }
 
-        public ExcellDatabaseIterator(ExcellDatabase excellDatabase, SimpleGenomeDatabase simpleGenomeDatabase)
+        public ExcellDatabaseIterator(ExcellDatabase excellDatabase, IGenomeDatabaseWrapper genomeDatabase)
         {
             _index = -1;
             _excellDatabase = excellDatabase;
-            _genomeDatabase = simpleGenomeDatabase;
+            _genomeDatabase = genomeDatabase;
 
             InitializeRows();
         }
@@ -63,9 +61,15 @@ namespace Task3.Iterators
             if (_index >= _names.Length)
                 return false;
 
-            List<GenomeData> genomes = _genomeDatabase.genomeDatas
-                                       .Where(g => g.Id.ToString() == _genomeIDs[_index])
-                                       .ToList();
+            List<GenomeData> genomes = new List<GenomeData>();
+
+            var it = _genomeDatabase.GetDatabaseIterator(); //_genomeDatabaseIterator.Restart();
+            while (it.Next())
+            {
+                if (it.Current.Id.ToString() == _genomeIDs[_index])
+                    genomes.Add(it.Current);
+            }
+
 
             double.TryParse(_deathRates[_index].Replace('.', ','), out var deathRate);
             double.TryParse(_infectionRates[_index].Replace('.', ','), out var infectionRate);

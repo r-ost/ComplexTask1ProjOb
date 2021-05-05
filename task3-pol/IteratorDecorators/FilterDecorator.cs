@@ -7,7 +7,7 @@ namespace Task3.IteratorDecorators
     {
         private readonly IVirusDataComparison _comparer;
 
-        public FilterDecorator(IDatabaseIterator inner, IVirusDataComparison comparer) : base(inner)
+        public FilterDecorator(IVirusDatabaseIterator inner, IVirusDataComparison comparer) : base(inner)
         {
             _comparer = comparer;
         }

@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Task3.Data;
 using Task3.Databases;
 
 namespace Task3.Iterators
 {
-    public class OvercomplicatedDatabaseIterator : IDatabaseIterator
+    public class OvercomplicatedDatabaseIterator : IVirusDatabaseIterator
     {
-        private SimpleGenomeDatabase _genomeDatabase;
-        private Queue<INode> _queue = new Queue<INode>();
+        private readonly IGenomeDatabaseWrapper _genomeDatabaseWrapper;
+        private readonly Queue<INode> _queue = new Queue<INode>();
         private VirusData _current;
 
         public VirusData Current 
@@ -23,10 +22,11 @@ namespace Task3.Iterators
             }
         }
 
+
         public OvercomplicatedDatabaseIterator(OvercomplicatedDatabase overcomplicatedDatabase,
-                                 SimpleGenomeDatabase simpleGenomeDatabase)
+            IGenomeDatabaseWrapper genomeDatabaseWrapper)
         {
-            _genomeDatabase = simpleGenomeDatabase;
+            _genomeDatabaseWrapper = genomeDatabaseWrapper;
 
             _current = null;
             _queue.Enqueue(overcomplicatedDatabase.Root);
@@ -43,9 +43,18 @@ namespace Task3.Iterators
                     _queue.Enqueue(child);
                 }
 
-                List<GenomeData> genomes = _genomeDatabase.genomeDatas
-                                           .Where(g => g.Tags.Contains(currentNode.GenomeTag))
-                                           .ToList();
+                List<GenomeData> genomes = new List<GenomeData>();
+
+
+                var it = _genomeDatabaseWrapper.GetDatabaseIterator();
+                //_genomeDatabaseIterator.Restart();
+                while (it.Next())
+                {
+                    if (it.Current.Tags.Contains(currentNode.GenomeTag))
+                    {
+                        genomes.Add(it.Current);
+                    }
+                }
 
                 VirusData virusData = new VirusData
                 (

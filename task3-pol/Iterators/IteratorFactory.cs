@@ -1,31 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Task3.Databases;
+﻿using Task3.Databases;
 
 namespace Task3.Iterators
 {
     public class IteratorFactory
     {
-        private SimpleGenomeDatabase _genomeDatabase;
-        public IteratorFactory(SimpleGenomeDatabase genomeDatabase)
+        private readonly IGenomeDatabaseWrapper _genomeDatabaseWrapper;
+        public IteratorFactory(IGenomeDatabaseWrapper genomeDatabaseWrapper)
         {
-            _genomeDatabase = genomeDatabase;
+            _genomeDatabaseWrapper = genomeDatabaseWrapper;
         }
 
-        public IDatabaseIterator GetIterator(ExcellDatabase database)
+
+        public IVirusDatabaseIterator GetIterator(ExcellDatabase database)
         {
-            return new ExcellDatabaseIterator(database, _genomeDatabase);
+            return new ExcellDatabaseIterator(database, _genomeDatabaseWrapper);
         }
 
-        public IDatabaseIterator GetIterator(SimpleDatabase database)
+        public IVirusDatabaseIterator GetIterator(SimpleDatabase database)
         {
-            return new SimpleDatabaseIterator(database, _genomeDatabase);
+            return new SimpleDatabaseIterator(database, _genomeDatabaseWrapper);
         }
 
-        public IDatabaseIterator GetIterator(OvercomplicatedDatabase database)
+        public IVirusDatabaseIterator GetIterator(OvercomplicatedDatabase database)
         {
-            return new OvercomplicatedDatabaseIterator(database, _genomeDatabase);
+            return new OvercomplicatedDatabaseIterator(database, _genomeDatabaseWrapper);
         }
     }
 }

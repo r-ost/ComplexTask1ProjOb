@@ -5,12 +5,13 @@ namespace Task3.IteratorDecorators
 {
     public class ConcatenateDecorator : IteratorDecorator
     {
-        private readonly IDatabaseIterator _concatenated;
-        private bool _nextDatabase = false;
+        private readonly IVirusDatabaseIterator _concatenated;
+        private bool _nextDatabase;
 
-        public ConcatenateDecorator(IDatabaseIterator inner, IDatabaseIterator concatenated) : base(inner)
+        public ConcatenateDecorator(IVirusDatabaseIterator inner, IVirusDatabaseIterator concatenated) : base(inner)
         {
             _concatenated = concatenated;
+            _nextDatabase = false;
         }
 
 
